@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Users</title>
+    <link rel="stylesheet" href="/styles/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-zinc-900 text-white min-h-screen">
+    <div class="container mx-auto p-8">
+        <h1 class="text-3xl font-semibold text-center mb-8">All Users</h1>
+        
+        <!-- Users Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <!-- User Card -->
+            <% users.forEach( function(user){ %>
+                <div class="bg-zinc-800 p-4 rounded-lg shadow-lg">
+                    <img src="<%= user.image %>" alt="User Image" class="w-24 h-24 mx-auto rounded-full mb-4">
+                    <h2 class="text-xl font-semibold text-center mb-2"><%= user.name %></h2>
+                    <p class="text-center text-gray-400 mb-4"><%= user.email %></p>
+                    <button class="w-full py-2 bg-blue-500 rounded text-white font-semibold hover:bg-blue-600 focus:outline-none">View Profile</button>
+                    <div class=" flex justify-between mt-2 px-4">
+                        <a href="/edit/<%= user._id %>" class="text-zinc-200 ">Edit</a>
+                        <a href="/delete/<%= user._id %>" class="text-red-300 ">Delete</a>
+                    </div>
+                </div>
+            <% })%>
+            
+            
+            
+            <!-- Repeat the card structure for each user -->
+            <!-- Here you would dynamically add user cards based on your user data -->
+        </div>
+        
+        <!-- Back to Create User Page Link -->
+        <div class="text-center mt-8">
+            <a href="/" class="text-blue-400 hover:underline">Back to Create User Page</a>
+        </div>
+    </div>
+</body>
+</html>

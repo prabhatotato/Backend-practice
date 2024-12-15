@@ -1,0 +1,1 @@
+some issues faced in node development
